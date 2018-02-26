@@ -13,7 +13,8 @@
   <link href="<?php echo img('apple-touch-icon.png'); ?>" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+  <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="<?php echo lib('bootstrap/css/bootstrap.min', 'css'); ?>" rel="stylesheet">
@@ -78,10 +79,9 @@
     Intro Section
   ============================-->
   <section id="intro">
-
     <div class="intro-content">
       <h2>
-      	<?php echo lang('site_transport'); ?> <span><?php echo lang('site_and_logistic'); ?></span>
+      	<?php echo lang('site_transport'); ?> <?php echo lang('site_and_logistic'); ?>
       	<br>
       	<?php echo config('company_name'); ?>
       </h2>
@@ -92,14 +92,15 @@
     </div>
 
     <div id="intro-carousel" class="owl-carousel" >
-      <div class="item" style="background-image: url('<php echo img('intro-carousel/1.jpg'); ?>');"></div>
-      <div class="item" style="background-image: url('<php echo img('intro-carousel/2.jpg'); ?>');"></div>
-      <div class="item" style="background-image: url('<php echo img('intro-carousel/3.jpg'); ?>');"></div>
-      <div class="item" style="background-image: url('<php echo img('intro-carousel/4.jpg'); ?>');"></div>
-      <div class="item" style="background-image: url('<php echo img('intro-carousel/5.jpg'); ?>');"></div>
+      <div class="item" style="background-image: url('<?php echo img('intro-carousel/1.jpg'); ?>');"></div>
+      <div class="item" style="background-image: url('<?php echo img('intro-carousel/2.jpg'); ?>');"></div>
+      <div class="item" style="background-image: url('<?php echo img('intro-carousel/3.jpg'); ?>');"></div>
+      <div class="item" style="background-image: url('<?php echo img('intro-carousel/4.jpg'); ?>');"></div>
+      <div class="item" style="background-image: url('<?php echo img('intro-carousel/5.jpg'); ?>');"></div>
     </div>
-
   </section><!-- #intro -->
+
+
 
   <main id="main">
 
@@ -115,7 +116,9 @@
           </div>
 
           <div class="col-lg-6 content">
-            <h2><?php echo lang('site_about_us'); ?></h2>
+            <div class="section-header">
+              <h2><?php echo lang('site_about_us'); ?></h2>
+            </div>
             <h3><?php echo lang('site_about_us_description'); ?></h3>
 
             <ul>
@@ -480,7 +483,6 @@
   <script src="<?php echo lib('owlcarousel/owl.carousel.min', 'js'); ?>"></script>
   <script src="<?php echo lib('magnific-popup/magnific-popup.min', 'js'); ?>"></script>
   <script src="<?php echo lib('sticky/sticky', 'js'); ?>"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
   <!-- Contact Form JavaScript File -->
   <script src="<?php echo js('contactform'); ?>"></script>
 
