@@ -50,6 +50,45 @@ class Home extends CI_Controller {
 		$subject = $data['subject'];
 		$message = $data['message'];
 
-		echo "OK";
+		$email_data = array(
+			"sender" => array("email" => "contacto@donalfredo.com"),
+			"htmlContent" => $message,
+			"textContent" => $message,
+			"subject" => $subject,
+			"replyTo" => array("email" => $email),
+			"to" => array(array("email" => "felipe.chacon@gmail.com", "name" => "Felipe Chacón"))
+		);
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		  CURLOPT_URL => "https://api.sendinblue.com/v3/smtp/email",
+		  CURLOPT_RETURNTRANSFER => true,
+		  CURLOPT_ENCODING => "",
+		  CURLOPT_MAXREDIRS => 10,
+		  CURLOPT_TIMEOUT => 30,
+		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		  CURLOPT_CUSTOMREQUEST => "POST",
+		  CURLOPT_POSTFIELDS => json_encode($email_data),
+		));
+
+		$headers = array(
+			'Accept: application/json',
+			'Content-Type: application/json',
+			'api-key: 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'
+		);
+		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		if($err) {
+		  echo "cURL Error #:" . $err;
+		}
+		else {
+		  echo "OK";
+		}
 	}
 }
